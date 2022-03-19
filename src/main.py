@@ -2,6 +2,7 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.service import Service
 from os import getcwd
 
 import platform
@@ -10,16 +11,21 @@ import codecs
 operating_system = platform.system()
 if operating_system.lower() == "windows":
     print("[LOG] İşletim Sistemi: " + operating_system)
+    DRIVER = getcwd() + '\windows\geckodriver'
+    print("[LOG] Driver: " + DRIVER)
+
 
 elif operating_system.lower() == "linux":
     print("[LOG] İşletim Sistemi: " + operating_system)
-    DRIVER = getcwd() + '/geckodriver'
+    DRIVER = getcwd() + '/linux/geckodriver'
     print("[LOG] Driver: " + DRIVER)
 
 fireFoxOptions = webdriver.FirefoxOptions()
+service = Service(r'{}'.format(DRIVER))
+child_service = Service(r'{}'.format(DRIVER))
 fireFoxOptions.add_argument("--headless")
 
-driver = webdriver.Firefox(options=fireFoxOptions)
+driver = webdriver.Firefox(options=fireFoxOptions, service=service)
 
 driver.get('https://halkarz.com/')
 print('[LOG] Site açıldı')
@@ -53,10 +59,10 @@ for num, il_content in enumerate(stocks_list, 1):
     il_company_detail_link = il_content.find_element(By.CLASS_NAME, 'il-halka-arz-sirket').find_element(By.CSS_SELECTOR, 'a').get_attribute('href')
     print('[LOG] Şirket detay linki alındı')
     if operating_system.lower() == 'windows':
-        child_driver = webdriver.Firefox(options=fireFoxOptions)
+        child_driver = webdriver.Firefox(options=fireFoxOptions, service=child_service)
     
     elif operating_system.lower() == 'linux':
-        child_driver = webdriver.Firefox(executable_path=DRIVER, options=fireFoxOptions)
+        child_driver = webdriver.Firefox(options=fireFoxOptions, service=child_service)
     child_driver.get(il_company_detail_link)
     print('[LOG] Açılacak link: "{}"'.format(il_company_detail_link))
     print('[LOG] Şirket detay sayfası açıldı')
