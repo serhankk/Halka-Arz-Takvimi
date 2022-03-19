@@ -9,8 +9,6 @@ import codecs
 operating_system = platform.system()
 if operating_system.lower() == "windows":
     print("[LOG] İşletim Sistemi: " + operating_system)
-    DRIVER = getcwd() + '\geckodriver.exe'
-    print("[LOG] Driver: " + DRIVER)
 
 elif operating_system.lower() == "linux":
     print("[LOG] İşletim Sistemi: " + operating_system)
@@ -73,7 +71,7 @@ for num, il_content in enumerate(stocks_list, 1):
     il_public_offering_date = il_content.find_element_by_class_name('il-halka-arz-tarihi').text
     print('[LOG] Halka arz tarihi alındı')
 
-    output.write('[INFO] {}, "{}", "{}", "{}", "{}"\n'.format(num, il_bist_code, il_company_name, public_offer_price, il_public_offering_date))
+    output.write('{}, "{}", "{}", "{}", "{}"\n'.format(num, il_bist_code, il_company_name, public_offer_price, il_public_offering_date))
     print('[INFO] {}, {}, {}, {}, {}'.format(num, il_bist_code, il_company_name, public_offer_price, il_public_offering_date))
     print('[LOG] Şirket bilgileri basıldı')
     output.close()
