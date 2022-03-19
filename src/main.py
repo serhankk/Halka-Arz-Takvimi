@@ -23,8 +23,6 @@ driver = webdriver.Firefox(options=fireFoxOptions)
 driver.get('https://halkarz.com/')
 print('[LOG] Site açıldı')
 
-driver.maximize_window()
-print('[LOG] Tam ekrana geçildi')
 while True:
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
     print('[LOG] Sayfanın en altına inildi')

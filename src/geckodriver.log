@@ -10117,3 +10117,15 @@ JavaScript warning: https://mc.yandex.ru/metrika/tag.js, line 12: WEBGL_debug_re
 1647687364020	Marionette	INFO	Stopped listening on port 54544
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
 JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1647688576797	geckodriver	INFO	Listening on 127.0.0.1:63290
+1647688579870	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "63291" "-no-remote" "-profile" "C:\\Users\\ASUS\\AppData\\Local\\Temp\\rust_mozprofileqfjoTV"
+*** You are running in headless mode.
+1647688580148	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ASUS\\AppData\\Local\\Temp\\rust_mozprofileqfjoTV\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:63291/devtools/browser/cf45781b-7654-4cc8-8842-b051cbee0a38
+1647688581016	Marionette	INFO	Listening on port 63296
+1647688581413	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://mc.yandex.ru/metrika/tag.js, line 12: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/J_qxQZjuUB_uQp7BvnBI0K8a5e4rJKdHhykRiRTCxyY.js line 1 > eval line 7664 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1647688589465	geckodriver	INFO	Listening on 127.0.0.1:63442
