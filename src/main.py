@@ -4,9 +4,25 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.service import Service
 from os import getcwd
+import os
+from datetime import date
 
 import platform
 import codecs
+
+today = date.today()
+today = today.strftime("%d-%m-%Y")
+
+
+path = getcwd() + '\output'
+PUBLIC_OFFER_OUTPUT = r'{}_PUBLIC-OFFER.csv'.format(path)
+
+is_exist = os.path.exists(path)
+print('[LOG] Çıktı klasörü mevcut mu: ' + str(is_exist))
+
+if not is_exist:
+    os.makedirs(path)
+    print('[LOG] %s klasörü oluşturuldu' % path)
 
 operating_system = platform.system()
 if operating_system.lower() == "windows":
@@ -50,7 +66,7 @@ print('[LOG] Program sonu!')
 stocks_list = driver.find_elements(By.CLASS_NAME, 'halka-arz-list')
 print('[LOG] Hisse senetleri listesi alındı')
 for num, il_content in enumerate(stocks_list, 1):
-    output = codecs.open('output.csv', 'a', 'utf-8')
+    output = codecs.open(PUBLIC_OFFER_OUTPUT, 'a', 'utf-8')
     print('[LOG] Şirket bilgisi alınıyor:')
     il_bist_code = il_content.find_element(By.CLASS_NAME, 'il-bist-kod').text
     print('[LOG] Bist kodu alındı')
