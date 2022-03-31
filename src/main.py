@@ -55,15 +55,13 @@ while True:
     try:
         load_more = driver.find_element(By.CLASS_NAME, 'misha_loadmore')
         print('[LOG] Daha fazla butonu bulundu.')
-
+       
         load_more.click()
         print('[LOG] Daha fazla hisse yükleniyor...')
     except NoSuchElementException:
-        print('[LOG] Yüklenecek daha fazla hisse kalmadı')
         break
 
 print('[LOG] Program sonu!')
-
 
 stocks_list = driver.find_elements(By.CLASS_NAME, 'halka-arz-list')
 print('[LOG] Hisse senetleri listesi alındı')
