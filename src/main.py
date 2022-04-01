@@ -55,7 +55,7 @@ while True:
     try:
         load_more = driver.find_element(By.CLASS_NAME, "misha_loadmore")
         print("[LOG] Daha fazla butonu bulundu.")
-       
+
         load_more.click()
         print("[LOG] Daha fazla hisse yükleniyor...")
     except NoSuchElementException:
@@ -80,12 +80,7 @@ for num, il_content in enumerate(stocks_list, 1):
             By.CSS_SELECTOR, 'a').get_attribute("href")
     print("[LOG] Şirket detay linki alındı")
 
-    # BURASI NEYİ KONTROL EDİYOR??
-    if operating_system.lower() == "windows":
-        child_driver = webdriver.Firefox(options=fireFoxOptions, service=child_service)
-
-    elif operating_system.lower() == "linux":
-        child_driver = webdriver.Firefox(options=fireFoxOptions, service=child_service)
+    child_driver = webdriver.Firefox(options=fireFoxOptions, service=child_service)
 
     child_driver.get(il_company_detail_link)
     print(f'[LOG] Açılacak link: "{il_company_detail_link}"')
